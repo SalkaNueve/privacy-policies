@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnePercent — Privacy Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F8F7F4;
+            --bg-deep: #F1F0EB;
+            --text: #141210;
+            --text-mid: #6E6960;
+            --text-light: #A09A90;
+            --accent-tone: #4A6274;
+            --accent-soft: rgba(74, 98, 116, 0.07);
+            --border: #E6E3DC;
+            --border-light: #EFEEE8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', -apple-system, sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle grain */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 128px 128px;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 80px 32px 120px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 64px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.1s forwards;
+        }
+
+        .logo {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 32px;
+            color: var(--text);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .header-line {
+            width: 36px;
+            height: 1px;
+            background: var(--border);
+            margin: 24px 0;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: clamp(36px, 6vw, 48px);
+            color: var(--text);
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .effective-date {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.15s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.25s; }
+        .section:nth-child(5) { animation-delay: 0.3s; }
+        .section:nth-child(6) { animation-delay: 0.35s; }
+        .section:nth-child(7) { animation-delay: 0.4s; }
+        .section:nth-child(8) { animation-delay: 0.45s; }
+        .section:nth-child(9) { animation-delay: 0.5s; }
+        .section:nth-child(10) { animation-delay: 0.55s; }
+
+        h2 {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 26px;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        p {
+            font-size: 15px;
+            color: var(--text-mid);
+            margin-bottom: 14px;
+            font-weight: 300;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        a {
+            color: var(--accent-tone);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(74, 98, 116, 0.2);
+            transition: border-color 0.3s ease;
+        }
+
+        a:hover {
+            border-color: var(--accent-tone);
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+            margin: 48px 0;
+        }
+
+        /* Summary card */
+        .summary-card {
+            background: var(--accent-soft);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 28px 28px;
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out 0.12s forwards;
+        }
+
+        .summary-card p {
+            font-size: 15px;
+            color: var(--text-mid);
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+
+        .summary-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-tone);
+            margin-bottom: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out 0.6s forwards;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .footer .logo {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container {
+                padding: 48px 24px 80px;
+            }
+            .header {
+                margin-bottom: 48px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">1%</div>
+            <div class="header-line"></div>
+            <h1>Privacy Policy</h1>
+            <div class="effective-date">Effective March 1, 2026</div>
+        </div>
+
+        <div class="summary-card">
+            <div class="summary-label">In short</div>
+            <p>OnePercent stores all your data locally on your device. We do not collect, transmit, or sell your personal information. Your habits, progress, and profile never leave your phone.</p>
+        </div>
+
+        <div class="section">
+            <h2>About OnePercent</h2>
+            <p>OnePercent is a habit-tracking app built around the philosophy of 1% daily improvement. The app helps you log daily habits, track your compound progress over time, and celebrate milestones along the way.</p>
+            <p>OnePercent is developed and published by SalkaNueve. This privacy policy explains how we handle your information when you use our app.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Data we collect</h2>
+            <p><strong>We do not collect any personal data.</strong> All information you enter into OnePercent — including your name, habits, daily logs, and preferences — is stored exclusively on your device using Apple's SwiftData framework.</p>
+            <p>We have no servers, no databases, and no analytics infrastructure. Your data exists only on your iPhone.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Information stored on your device</h2>
+            <p>The following information is stored locally on your device and is never transmitted elsewhere:</p>
+            <p><strong>Profile information:</strong> Your first name, age range, and gender (all optional except first name). This is used only to personalize greetings within the app.</p>
+            <p><strong>Habit data:</strong> Your habit titles, daily log entries, progress calculations, streak counts, and milestone achievements.</p>
+            <p><strong>Preferences:</strong> Your selected theme, reminder times, and notification settings.</p>
+            <p><strong>Widget data:</strong> A small amount of data is shared between the app and the home screen widget via Apple's App Groups. This data remains on your device.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Subscriptions and payments</h2>
+            <p>OnePercent offers an optional premium subscription processed entirely through Apple's App Store and StoreKit framework. We do not process, store, or have access to any payment information, credit card numbers, or Apple ID details.</p>
+            <p>All subscription management, billing, and payment processing is handled by Apple. Please refer to <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a> for information about how Apple handles your purchase data.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Notifications</h2>
+            <p>If you enable daily reminders, OnePercent schedules local notifications on your device. These notifications are processed entirely by iOS and are not routed through any external server. We do not receive notification tokens or push notification data.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Third-party services</h2>
+            <p>OnePercent does not integrate any third-party analytics, advertising, tracking, or data collection services. We do not use Firebase, Google Analytics, Facebook SDK, or any similar tools.</p>
+            <p>The only third-party interaction is with Apple's StoreKit for subscription purchases, and Apple's WidgetKit for home screen widgets — both are native iOS frameworks.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Data sharing</h2>
+            <p><strong>We do not share, sell, rent, or trade your personal information with anyone.</strong> Since all data is stored locally on your device, we have no ability to access or share it even if we wanted to.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Data deletion</h2>
+            <p>You can delete all your data at any time by using the "Reset all data" option in the app's Settings. This permanently removes all habits, progress, and profile information from your device.</p>
+            <p>Uninstalling the app will also remove all associated data from your device.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Children's privacy</h2>
+            <p>OnePercent does not knowingly collect information from children under the age of 13. The app does not require or encourage the input of personal information beyond a first name for greeting personalization.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Changes to this policy</h2>
+            <p>We may update this privacy policy from time to time. Any changes will be reflected on this page with an updated effective date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Contact</h2>
+            <p>If you have questions about this privacy policy or the app, please contact us at:</p>
+            <p><a href="mailto:applikationskonsulten@gmail.com">applikationskonsulten@gmail.com</a></p>
+        </div>
+
+        <div class="footer">
+            <div class="logo">1%</div>
+            <p>Small daily improvements compound into remarkable results.</p>
+            <p style="margin-top: 12px;">© 2026 Saleh Mustafa. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
